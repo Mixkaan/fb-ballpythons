@@ -1,0 +1,16 @@
+link(rel="stylesheet", href="/styles/components/03_function_components/01_buttons.css", attr)
+
+mixin BtnPrimary (fProps)
+  a(href=fProps.url, class=fProps.addClass).btn-primary.-Rad #{fProps.txt}
+
+mixin BtnSecondary (fProps)
+  a(href=fProps.url, class=fProps.addClass).btn-secondary.-Rad #{fProps.txt}
+
+mixin BtnInfo (fProps)
+  a(href=fProps.url, class=fProps.addClass).btn-info.-Rad #{fProps.txt}
+
+mixin BtnDanger (fProps)
+  a(href=fProps.url, class=fProps.addClass).btn-danger.-Rad #{fProps.txt}
+
+mixin BtnSubmit (fProps)
+  button(type="submit", class=fProps.addClass).btn-primary.-Rad #{fProps.txt}

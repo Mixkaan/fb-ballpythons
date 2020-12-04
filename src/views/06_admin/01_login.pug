@@ -1,0 +1,34 @@
+extends ../layout
+block append helmet
+
+  - actualPage = 'Disponible'
+  block append
+    link(rel="stylesheet", href="/styles/06_admin/01_login.css")
+
+block main
+
+  section.login.-Flex.-Screen.-Menu-margin
+    form(action="/logged" method="POST").form.-Padd2.-Rad2
+
+      h2.-Font3.-Center INGRESAR
+      p.-Center Ingresa la informacion necesaria para acceder:
+      br
+      +InptText({
+        label: 'USUARIO',
+        name: 'username',
+        pHolder: 'Ingrese el usuario',
+        addClass: 'input'
+      })
+
+      +InptPass({
+        label: 'CONTRASEÑA',
+        name: 'password',
+        pHolder: 'Ingrese la contraseña',
+        addClass: 'input'
+      })
+      br
+      br
+      +BtnSubmit({
+        txt: 'acceder',
+        addClass: 'btn'
+      })

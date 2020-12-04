@@ -1,0 +1,40 @@
+@import ../../_colors
+
+@mixin btn-assets
+  // width: 80%
+  margin: 0.5em 0
+  text-align: center
+  cursor: pointer
+  padding: 0.4rem 1.5rem
+  transition: all 0.3s
+
+.btn-primary
+  @include btn-assets
+  background-color: $col4
+  &:hover
+    color: $colw
+    background-color: $col3
+
+.btn-secondary
+  @include btn-assets
+  color: $colw
+  background-color: $col5
+  &:hover
+    color: $colb
+    background-color: $col6
+
+.btn-info
+  @include btn-assets
+  color: $colw
+  background-color: $col2
+  &:hover
+    color: $colb
+    background-color: $colw
+
+.btn-danger
+  @include btn-assets
+  color: $colw
+  background-color: $colr
+  &:hover
+    color: $colb
+    background-color: $colw

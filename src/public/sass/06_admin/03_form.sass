@@ -1,0 +1,72 @@
+@import ../_colors
+
+$admin-page: 'agregar un nuevo ejemplar'
+
+nav
+  transform: translateY(-7vh)
+
+body
+  background-color: $col1
+
+.admin_nav
+  z-index: 1000000
+  position: fixed
+  width: 2em
+  height: 100vh
+  background-color: red
+  transform: translateY(-1.3rem)
+  &::after
+    position: absolute
+    content: $admin-page
+    width: 22vw
+    padding: 0.2rem
+    font-size: 1em
+    text-align: center
+    border-bottom-right-radius: 20px
+    color: $colw
+    background-color: $colb
+  &::before
+    position: absolute
+    margin-top: 40vh
+    width: 4.5em
+    content: 'opciones >'
+    text-align: center
+    font-size: 0.8rem
+    background-color: green
+  &:hover
+    width: 20vw
+    &::before
+      opacity: 0
+  &:hover .admin_nav__buttons_section
+    opacity: 1
+    transition-delay: 0.5s
+  &__buttons_section
+    opacity: 0
+    position: absolute
+    width: 100%
+    margin-top: 4em
+    align-items: center
+    flex-direction: column
+.nav_btn
+  width: 90%
+
+.form
+  width: 55vw
+  margin:
+    top: 2em
+    left: auto
+    right: auto
+    bottom: 4em
+  background-color: $col8
+.input
+  width: 100%
+// .images
+//   width: 100%
+//   position: relative
+//   display: flex
+//   justify-content: center
+//   .file
+//     margin: 0 1em
+
+.btn-agregar
+  width: 100%

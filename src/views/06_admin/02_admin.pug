@@ -1,0 +1,108 @@
+extends ../layout
+block append helmet
+
+  -actualPage = "Admin"
+  block append
+    link(rel="stylesheet", href="/styles/06_admin/02_admin.css")
+block main
+  aside.admin_nav.-Trans2
+    div.admin_nav__buttons_section.-Flex.-Trans2
+      +BtnPrimary({
+        txt: 'agregar un nuevo ejemplar',
+        url: '/admin/agregar/piton',
+        addClass: 'nav_btn'
+      })
+
+      +BtnPrimary({
+        txt: 'agregar un producto',
+        url: '/admin/agregar/producto',
+        addClass: 'nav_btn'
+      })
+
+      +BtnPrimary({
+        txt: 'regresar a la pagina de inicio',
+        url: '/agregar',
+        addClass: 'nav_btn'
+      })
+
+  section.panel.-Padd
+      div.tables.-Flex
+        div.tables__container.-Flex
+          div(onclick="changeTab(1)").tab.active
+            p animales
+            div.tab__content
+              table.table.-Shadow
+                thead.table__title.-Center
+                  th ID
+                  th NOMBRE
+                  th PRECIO
+                  th DESCRIPCION
+                  th CATEGORIA
+                  th SEXO
+                  th EDAD
+                  th IMAGEN
+                  th ACCIONES
+                tbody.table__body.-Center
+                  for python in pythons
+                    tr
+                      td.-Font1= python.id
+                      td.-Font1= python.name
+                      td.-Font1= python.price
+                      td.-Font1= python.description
+                      td.-Font1= python.category
+                      td.-Font1= python.gender
+                      td.-Font1= python.age
+                      td
+                        img(src=python.imageURL)
+                      td
+                        +BtnDanger({
+                          txt: 'eliminar',
+                          url: '/admin/agregar/python/DELETE='+ python.id,
+                          addClass: ''
+                        })
+
+          div(onclick="changeTab(2)").tab.-Shadow.close
+            p productos
+            div.tab__content
+              table.table.-Shadow
+                thead.table__title.-Center
+                  th ID
+                  th NOMBRE
+                  th PRECIO
+                  th DESCRIPCION
+                  th CATEGORIA
+                  th IMAGEN
+                  th ACCIONES
+                tbody.table__body.-Center
+                  for product in products
+                    tr
+                      td.-Font1= product.id
+                      td.-Font1= product.name
+                      td.-Font1= product.price
+                      td.-Font1= product.description
+                      td.-Font1= product.category
+                      td
+                        img(src=product.imageURL)
+                      td
+                        div.-Flex
+                          +BtnDanger({
+                            txt: 'eliminar',
+                            url: '/admin/agregar/producto/DELETE='+ product.id,
+                            addClass: ''
+                          })
+                          +BtnSecondary({
+                            txt: 'eliminar',
+                            url: '/admin/modificar/producto/GET='+ product.id,
+                            addClass: ''
+                          })
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  //- +InptFile
+
+  script(src="/js/06_admin/tabs.js")

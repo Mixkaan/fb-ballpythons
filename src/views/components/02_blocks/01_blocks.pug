@@ -1,0 +1,11 @@
+link(rel="stylesheet", href="/styles/components/02_blocks/01_blocks.css")
+
+mixin Sub (blockProps)
+  div.sub.-Flex.-Shadow
+    div.sub__line
+    div.sub__title.-Font2 #{blockProps.title}
+    div.sub__line
+//- INITIALIZATION --//>
+  +Sub({
+    title
+  })

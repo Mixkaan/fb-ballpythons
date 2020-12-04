@@ -1,0 +1,99 @@
+//- GENERAL-STYLES -------------------------------------------------- //>
+link(rel="stylesheet", href="/styles/components/03_function_components/02_inputs.css", attr)
+
+//- INPUT-TEXT ------------------------------------------------------ //>
+mixin InptText (fProps)
+  div.input-container.-Flex
+    label.-Font1.-Bold #{fProps.label}
+    label.input-container
+      input(type="text", class=fProps.addClass, name=fProps.name required).inpt.-Padd.-Rad2.-Shadow.-Trans
+      span.placeholder.-Rad2.-Trans #{fProps.pHolder}
+//-INITIALIZATION --//>
+  +InptText({
+    label,
+    name,
+    pHolder,
+    addClass,
+  })
+
+//- INPUT-PASSWORD -------------------------------------------------- //>
+mixin InptPass (fProps)
+  div.input-container.-Flex
+    label.-Font1.-Bold #{fProps.label}
+    label.input-container
+      input#password(type="password", class=fProps.addClass, name=fProps.name required).inpt.-Padd.-Rad2.-Shadow.-Trans
+      span.placeholder.-Rad2.-Trans #{fProps.pHolder}
+    br
+    div.-Flex
+      input(type="checkbox", onClick="togglePassVisibility()").-Rad2
+      label(for="") mostrar contraseña
+    script(src="/js/components/03_function_components/02_inputs/toggle_pass_visibility.js")
+//-INITIALIZATION --//>
+  +InptText({
+    label,
+    name,
+    pHolder,
+    addClass,
+  })
+
+//- INPUT-NUMBER ---------------------------------------------------- //>
+mixin InptNum (fProps)
+  div.input-container.-Flex
+    label(for="").-Font1.-Bold #{fProps.label}
+    label.input-container
+      input(type="number", class=fProps.addClass, name=fProps.name required).-Padd.-Rad2.-Shadow.-Trans
+      span.placeholder.-Rad2.-Trans #{fProps.pHolder}
+//-INITIALIZATION --//>
+  +InptNum({
+    label,
+    name,
+    pHolder,
+    addClass,
+  })
+
+//- TEXTAREA -------------------------------------------------------- //>
+mixin TxtArea (fProps)
+  div.input-container.-Flex
+    label.-Font1.-Bold #{fProps.label}
+    label(for=fProps.name).txt-container
+      textarea(name=fProps.name, cols="40", rows="10", class=fProps.addClass required).-Padd.-Rad2.-Shadow.-Trans
+      span.placeholder.-Rad2.-Trans #{fProps.pHolder}
+//-INITIALIZATION --//>
+  +TxtArea({
+    label,
+    name,
+    pHolder,
+    addClass,
+  })
+
+//- SELECT ---------------------------------------------------------- //>
+mixin Select (fProps)
+  div.input-container.-Flex
+    label.-Font1.-Bold #{fProps.label}
+    label.select-container
+      select(name=fProps.name class=fProps.addClass).select.-Padd.-Rad2.-Trans
+        for option in options
+          option(value=option.option).op.-Trans=option.option
+      span.placeholder.-Rad2.-Trans #{fProps.pHolder}
+      div.arrow
+//-INITIALIZATION --//>
+  +Select({
+    label,
+    name,
+    pHolder,
+    addClass,
+  })
+
+
+mixin InptFile (fProps)
+  div(class=fProps.addClass).input-file
+    label.-Font1.-Bold #{fProps.label}
+    br
+    br
+    div.input-file__container.-Rad2.-Padd
+      div.drop-zone
+        span.drop-zone__prompt Arrastra aquí o da click para agregar
+        input.drop-zone__input(type='file' name=fProps.name aria-label="File browser example")
+
+
+  script(src="/js/components/03_function_components/02_inputs/upload-file-input.js")

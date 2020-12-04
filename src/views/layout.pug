@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    
+    block helmet
+    title FB - #{actualPage}
+
+    //- HOT-JAR-ANALYTICS-PUGGLIN ----------------------------------- //>
+
+    //- JQUERY
+
+    //- GOOGLE-FONTS
+
+    //- FONT-AWESOME
+
+    //- GENERAL-STYLES ---------------------------------------------- //>
+
+    //- //- STYLE'S-OWN-LIBRARY --------------------------- //>
+    link(rel="stylesheet", href="/styles/lib.css")
+
+    //- //- DEFAULT-STYLES -------------------------------- //>
+    link(rel="stylesheet", href="/styles/default.css")
+
+    //- ANIMATE.CSS-&-WOW.JS ---------------------------------------- //>
+
+    //- //- ANIMATE.CSS ----------------------------------- //>
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css")
+    //- //- WOW.JS ---------------------------------------- //>
+    script(src='/js/lib/wow/wow.min.js')
+    script.
+      new WOW().init();
+
+    //- COMPONENTS -------------------------------------------------- //>
+    include ./components/03_function_components/01_buttons
+    include ./components/03_function_components/02_inputs
+    include ./components/02_blocks/01_blocks
+
+  body
+    //- MENU -------------------------------------------------------- //>
+    include ./components/01_partials/01_menu
+    br
+
+    //- BODY-STRUCTURE ---------------------------------------------- //>
+    block main
+
+    //- FOOTER ------------------------------------------------------ //>
+    //- include ./components/01_partials/footer
+
+    //- SCRIPT-CALLS ------------------------------------------------ //>

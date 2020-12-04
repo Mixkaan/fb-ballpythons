@@ -1,0 +1,88 @@
+extends ../layout
+
+block append helmet
+  - actualPage = 'Inicio'
+  //- STYLES -------------------------------------------------------- //>
+  link(rel="stylesheet", href="/styles/01_homepage/01_homepage.css")
+
+
+  link(rel='stylesheet' href='https://unpkg.com/swiper/swiper-bundle.min.css')
+  script(src='https://unpkg.com/swiper/swiper-bundle.min.js')
+
+block main
+
+  div.bann.-Menu-margin.-Flex
+    img(src="/icon/logo/1.png", alt="").bann__img
+    div.bann__txt.-Flex
+      h2.-Font3 Excelencia en genética
+      h3.-Font2 Alimento de calidad
+
+  //- RECENTLY-ADDED ------------------------------------------------ //>
+  //- SLIDER-SECTION ------------------------------------------------ //>
+  //- MORPHS -------------------------------------------------------- //>
+  +Sub({
+    title: 'BUSCA TAMBIEN POR CATEGORIA'
+  })
+  div.morphs.-Screen.-Flex
+    div.-content-case2
+
+      div.morphs__select.-Flex
+        div.object-case
+        div.object-case
+        div.object-case
+        div.object-case
+        div.object-case
+        div.object-case
+      
+      +BtnPrimary({
+        url: '',
+        txt: 'ver más',
+        addClass: ''
+      })
+
+  +Sub({
+    title: 'BUSCA TAMBIEN POR CATEGORIA'
+  })
+  div.algo.-Padd2
+  // Slider main container
+  .swiper-container
+    // Additional required wrapper
+    .swiper-wrapper
+      // Slides
+      .swiper-slide Slide 1
+      .swiper-slide Slide 2
+      .swiper-slide Slide 3
+      |         ...
+    // If we need pagination
+    .swiper-pagination
+    // If we need navigation buttons
+    .swiper-button-prev
+    .swiper-button-next
+    // If we need scrollbar
+    .swiper-scrollbar
+
+    script.
+      var mySwiper = new Swiper('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      })
+
+  //- link(rel='stylesheet' href='https://unpkg.com/swiper/swiper-bundle.min.css')
+  //- script(src='https://unpkg.com/swiper/swiper-bundle.min.js')

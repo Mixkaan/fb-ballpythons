@@ -1,0 +1,123 @@
+extends ../layout
+block append config
+
+  -paginaActual = "admin preventas"
+  block append
+    link(rel="stylesheet", href="/styles/06_admin/03_add_animal.css")
+
+block main
+  section.admin-nav.-Shadow.-Flex
+    div.admin-nav__actions
+    //+BtnPrimary({
+        url: '/admin/agregar/animal',
+        txt: 'agregar un animal'
+      })
+
+      +BtnPrimary({
+        url: '',
+        txt: 'agregar un producto'
+      })
+
+      +BtnSecondary({
+        url: '',
+        txt: 'crear un link de pago'
+      })
+
+    div.admin-nav__home
+      +BtnInfo({
+        url: '/admin',
+        txt: 'regresar al panel'
+      })
+
+  section.add-form.-Flex.-Padd2
+
+    form(action="/admin/agregar/producto/POST" method="POST" enctype="multipart/form-data").-Border.-Padd
+      +inputTxt({
+        label: 'NOMBRE',
+        name: 'name',
+        pHolder: 'nombre (ej: pogona vitticeps)',
+        addClass: 'add-form__input1'
+      })
+      // DESCRIPTION ---------------------------- //>
+      +textArea({
+            name: 'description',
+            label: 'DESCRIPCION DEL ANIMAL'
+          })
+
+      +inputNum({
+        label: 'PRECIO',
+        name: 'price',
+        pHolder: 'precio del ejemplar',
+        addClass: ''
+      })
+
+      div.form-flex.-Flex
+        div
+          br
+          // CATEGORY ----------------------------- //>
+          +label({
+            name: 'category',
+            label: 'CATEGORIA'
+          })
+          +inputRad({
+            label: 'alimento',
+            name: 'category',
+            addClass: ''
+          })
+          +inputRad({
+            label: 'suplementos',
+            name: 'category',
+            addClass: ''
+          })
+          +inputRad({
+            label: 'decoraciones',
+            name: 'category',
+            addClass: ''
+          })
+          +inputRad({
+            label: 'mantenimiento',
+            name: 'category',
+            addClass: ''
+          })
+
+          br
+          +inputFile({
+            label: 'subir archivo',
+            name: 'image',
+            id: 'inpFile'
+          })
+
+        div.img-pre.-Flex.-Padd.-Rad.-Border
+          img(src="", alt="" id="imgPrev").img-pre__img
+          span.-Center.img-pre__txt vista previa
+
+      +Btn({
+        type: 'submit',
+        btnType: '-btn-secondary',
+        txt: 'agregar animal'
+      })
+
+  script.
+    var inpFile = document.getElementById('inpFile');
+    var prevContainer = document.getElementById('imgPrev');
+    var prevImage = document.querySelector('.img-pre__img');
+    var prevDefaultText = document.querySelector('.img-pre__txt');
+
+    inpFile.addEventListener("change", function() {
+      const file = this.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        prevDefaultText.style.display = "none";
+        prevImage.style.display = "block";
+
+        reader.addEventListener('load', function() {
+          console.log(this)
+          prevImage.setAttribute('src', this.result);
+        });
+
+        reader.readAsDataURL(file);
+      }
+    });
+
