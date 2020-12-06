@@ -19,13 +19,33 @@ block main
 
   //- RECENTLY-ADDED ------------------------------------------------ //>
   +Sub({
-  title: 'BUSCA TAMBIEN POR CATEGORIA'
+  title: 'AGREGADOS RECIENTEMENTE'
   })
+  div.-content-case2
+    div.recently_added.-Flex
+      for python in pythons
+        +card({
+          img: python.imageURL,
+          alt: python.name,
+          price: python.price,
+          name: python.name
+        })
   //- //- SLIDER-SECTION ------------------------------------------------ //>
+  +Sub({
+  title: 'AGREGADOS RECIENTEMENTE'
+  })
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
   //- //- MORPHS -------------------------------------------------------- //>
-  //- +Sub({
-  //-   title: 'BUSCA TAMBIEN POR CATEGORIA'
-  //- })
+
   //- div.morphs.-Screen.-Flex
   //-   div.-content-case2
 

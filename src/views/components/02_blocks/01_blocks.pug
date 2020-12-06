@@ -1,11 +1,20 @@
 link(rel="stylesheet", href="/styles/components/02_blocks/01_blocks.css")
 
-mixin Sub (blockProps)
+mixin Sub (bProps)
   div.sub.-Flex.-Shadow
     div.sub__line
-    div.sub__title.-Font2 #{blockProps.title}
+    div.sub__title.-Font2 #{bProps.title}
     div.sub__line
 //- INITIALIZATION --//>
   +Sub({
     title
   })
+
+mixin card (bProps)
+  div.card.-Padd.-Shadow
+    div.card__options
+      a(href="") ver mas
+    img(src=bProps.img, alt=bProps.alt).card__img
+    div.card__info
+      p.-Center= '$' + ' ' + bProps.price
+      p.-Center=bProps.name
