@@ -23,12 +23,17 @@ nav
     background-color: $colb
   &::before
     position: absolute
+    width: 5em
     margin-top: 40vh
-    width: 4.5em
-    content: 'opciones >'
+    padding: 1em 0.2em
+    content: 'opts >'
+    font:
+      size: 0.6em
+      weight: 800
+    border-radius: 0px 20px 20px 0px
     text-align: center
-    font-size: 0.8rem
-    background-color: green
+    background-color: $colgr
+    transition: 0.5s
   &:hover
     width: 20vw
     &::before
@@ -96,6 +101,8 @@ body
   &__title
     padding: 1rem
     background-color: $col6
+    th
+      padding: 0 0.5em
   &__body
     color: $colw
     background-color: $col2
@@ -104,6 +111,11 @@ body
       div
         flex-direction: column
 img
-  width: 6rem
-  height: auto
+  width: auto
+  height: 4em
   border-radius: 2px
+
+.btn_actions
+  display: flex
+  justify-content: center
+  width: 100%

@@ -11,9 +11,9 @@ const PassportLocal = require('passport-local').Strategy;
 const Python = require('../models/Python');
 const Product = require('../models/Product');
 
-router.use(cookieParser('unico reptiles'));
+router.use(cookieParser('fb-ballpythons'));
 router.use(session({
-  secret: 'unico reptiles',
+  secret: 'fb-ballpythons',
   resave: true,
   saveUninitialized: true,
 }));
@@ -32,11 +32,10 @@ passport.deserializeUser(function(id, done) {
   done(null, {id: 1, name: 'victor'})
 });
 
-//- LOGIN-ENTRY PAGE ------------------------------------------------ //>
 router.get('/acceder', (req, res) => {
   res.render('06_admin/01_login')
 });
-//- LOGIN-POST-PETITION --------------------------------------------- //>
+
 router.post('/logged', passport.authenticate('local',{
   successRedirect: '/admin',
   failureRedirect: '/acceder',
@@ -70,15 +69,15 @@ router.get('/admin/agregar/producto', (req, res, next) => {
   res.redirect('/acceder')},
   //ROUTE
   async(req, res) => {
-  res.render('06_admin/03_add/01_python');
+  res.render('06_admin/04_add_product');
 });
 
 // CLOUDINARY -----
 const cloudinary = require('cloudinary');
 cloudinary.config({
-  cloud_name: 'fb-ballpythons',
-  api_key: '541343659118652',
-  api_secret: '_RbvVFrtAahaX7miD2QVFptgKU'
+  cloud_name: 'unico-reptiles',
+  api_key: '743545336383741',
+  api_secret: '_hEb4vq9u9qZMHZb6LCYc5RUAAI'
 });
 // FS EXTRA
 const { unlink } = require('fs-extra');
@@ -94,34 +93,35 @@ router.post('/admin/agregar/piton/POST', async(req, res) => {
   });
   await python.save();
   await unlink(req.file.path);
+  res.redirect('/admin');
+})
+
+router.get('/admin/agregar/piton/DELETE=:id', async(req, res) => {
+  const { id } = req.params;
+  const python = await Python.findByIdAndDelete(id);
+  await cloudinary.v2.uploader.destroy(python.public_id)
+  res.redirect('/admin')
+});
+
+// PRODUCT
+router.post('/admin/agregar/producto/POST', async(req, res) => {
+  const {name, description, price, category} = req.body;
+  const result = await cloudinary.v2.uploader.upload(req.file.path);
+  const product = new Product({
+    name, description, price, category,
+
+    imageURL: result.url,
+    public_id: result.public_id
+  });
+  await product.save();
+  await unlink(req.file.path);
   res.redirect('/admin')
 })
-// router.get('/admin/agregar/animal/DELETE=:id', async(req, res) => {
-//   const { id } = req.params;
-//   const animal = await Animal.findByIdAndDelete(id);
-//   await cloudinary.v2.uploader.destroy(animal.public_id)
-//   res.redirect('/admin')
-// });
-
-// // PRODUCT
-// router.post('/admin/agregar/producto/POST', async(req, res) => {
-//   const {name, description, price, category} = req.body;
-//   const result = await cloudinary.v2.uploader.upload(req.file.path);
-//   const product = new Product({
-//     name, description, price, category,
-
-//     imageURL: result.url,
-//     public_id: result.public_id
-//   });
-//   await product.save();
-//   await unlink(req.file.path);
-//   res.redirect('/admin')
-// })
-// router.get('/admin/agregar/producto/DELETE=:id', async(req, res) => {
-//   const { id } = req.params;
-//   const product = await Product.findByIdAndDelete(id);
-//   await cloudinary.v2.uploader.destroy(product.public_id);
-//   res.redirect('/admin')
-// })
+router.get('/admin/agregar/producto/DELETE=:id', async(req, res) => {
+  const { id } = req.params;
+  const product = await Product.findByIdAndDelete(id);
+  await cloudinary.v2.uploader.destroy(product.public_id);
+  res.redirect('/admin')
+})
 
 module.exports = router;

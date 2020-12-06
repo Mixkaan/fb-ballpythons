@@ -1,2 +1,101 @@
 
 
+extends ../../layout
+block append helmet
+
+  -actualPage = "Admin"
+  block append
+    link(rel="stylesheet", href="/styles/06_admin/03_form.css")
+
+    link(rel="stylesheet", href="/js/lib/dropzone/dist/dropzone.css")
+
+block main
+  aside.admin_nav.-Trans2
+    div.admin_nav__buttons_section.-Flex.-Trans2
+      +BtnPrimary({
+        txt: 'agregar un nuevo ejemplar',
+        url: '/admin/agregar/piton',
+        addClass: 'nav_btn'
+      })
+
+      +BtnPrimary({
+        txt: 'agregar un producto',
+        url: '/admin/agregar/producto',
+        addClass: 'nav_btn'
+      })
+
+      +BtnPrimary({
+        txt: 'regresar a la pagina de inicio',
+        url: '/agregar',
+        addClass: 'nav_btn'
+      })
+
+  div.form.-Rad2.-Padd2
+    h2.-Center.-Font2 AGREGAR UN NUEVO EJEMPLAR
+    br
+    br
+    form(action="/admin/agregar/piton/POST" method="POST", enctype="multipart/form-data")
+
+      +InptText({
+        label: 'Nombre',
+        name: 'name',
+        pHolder: 'Introduce un nombre',
+        addClass: 'input',
+        value: python.name
+      })
+
+      //- +TxtArea({
+      //-   label: 'Descripcion',
+      //-   name: 'description',
+      //-   pHolder: 'Introduce una descripcion',
+      //-   addClass: 'input',
+      //-   value: python.description
+      //- })
+      textarea(name="description", value=python.description cols="30", rows="10")
+      +InptText({
+        label: 'Moprhs',
+        name: 'morph',
+        pHolder: 'Escribe las fases',
+        addClass: 'input',
+        value: python.morph
+      })
+      +InptNum({
+        label: 'Precio',
+        pHolder: 'Precio del ejemplar',
+        name: 'price',
+        value: python.price,
+        addClass: '',
+      })
+      - var options = [{option: 'selecciona el sexo'}, {option: 'macho'}]
+      +Select({
+        label: 'Sexo',
+        name: 'gender',
+        pHolder: 'Selecciona el sexo',
+        addClass: '',
+        value: `python.gender`
+      }, options)
+      - var options = [{option: 'selecciona la edad'}, {option: 'cria'}]
+      +Select({
+        label: 'Edad',
+        name: 'age',
+        pHolder: 'Selecciona la edad',
+        addClass: '',
+      }, options)
+      br
+      br
+      br
+      div.images.-FLex
+        +InptFile({
+          name: 'image',
+          label: 'IMAGENES',
+          addClass: 'file'
+        })
+      br
+      br
+      +BtnSubmit({
+        txt: 'añadir ejemplar',
+        addClass: 'btn-agregar'
+      })
+
+  script(src="/js/lib/dropzone/dist/dropzone.js")
+

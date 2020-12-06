@@ -2,10 +2,8 @@ const express = require('express'),
       path = require('path'),
       morgan = require('morgan'),
       multer = require('multer'),
-      // cookieParser = require('cookie-parser'),
       bodyParser = require('body-parser'),
       { v4: uuidv4 } = require('uuid');
-
 uuidv4();
 
 //- EXPRESS --------------------------------------------------------- //>
@@ -42,9 +40,19 @@ app.use(require('node-sass-middleware')({
 //- MIDDLEWARES --------------------------------------------- //>
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+const storage = multer.diskStorage({
+  destination: path.join(__dirname,'public/img/uploads'),
+  filename: (req, file, cb, filename) => {
+    cb(null, uuidv4() + path.extname(file.originalname));
+  }
+});
 app.use(multer({
-  dest: path.join(__dirname, 'public/uploads')
-}).array('image', 3))
+  storage
+}).single('image'));
+
+app.use(bodyParser.json());
+
 //- SET-FAV-ICON ---------------------------------------------------- //>
 // const favicon = require('serve-favicon');
 // app.use(favicon(__dirname + '/public/favicon.ico'));

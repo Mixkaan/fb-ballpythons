@@ -1,21 +1,10 @@
 const {Schema, model} = require('mongoose');
 
 const pythonSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    morph: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: Number, required: true
-    },
+    name: {type: String, required: true},
+    description: {type: String, required: true},
+    morph: {type: String, required: true},
+    price: {type: Number, required: true},
     gender: {
         type: String, required: true
     },

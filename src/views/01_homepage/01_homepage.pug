@@ -18,71 +18,81 @@ block main
       h3.-Font2 Alimento de calidad
 
   //- RECENTLY-ADDED ------------------------------------------------ //>
-  //- SLIDER-SECTION ------------------------------------------------ //>
-  //- MORPHS -------------------------------------------------------- //>
   +Sub({
-    title: 'BUSCA TAMBIEN POR CATEGORIA'
+  title: 'BUSCA TAMBIEN POR CATEGORIA'
   })
-  div.morphs.-Screen.-Flex
-    div.-content-case2
+  //- //- SLIDER-SECTION ------------------------------------------------ //>
+  //- //- MORPHS -------------------------------------------------------- //>
+  //- +Sub({
+  //-   title: 'BUSCA TAMBIEN POR CATEGORIA'
+  //- })
+  //- div.morphs.-Screen.-Flex
+  //-   div.-content-case2
 
-      div.morphs__select.-Flex
-        div.object-case
-        div.object-case
-        div.object-case
-        div.object-case
-        div.object-case
-        div.object-case
+  //-     div.buttons
+  //-       div.morphs__select.-Flex
+  //-         for python in pythons
+  //-           div.object-case.-Padd
+  //-             img(src=python.imageURL, alt="").object-case__img
+  //-             p.-Center= python.name
+  //-       //- for python in pythons
+  //-       //-   div.object-case.-Padd
+  //-       //-     img(src=python.imageURL[i], alt="").object-case__img
+  //-       //-   //- div.object-case
+  //-       //-   //- div.object-case
+  //-       //-   //- div.object-case
+  //-       //-     //- div.object-case
+  //-       //-     //- div.object-case
       
-      +BtnPrimary({
-        url: '',
-        txt: 'ver más',
-        addClass: ''
-      })
+  //-     +BtnPrimary({
+  //-       url: '',
+  //-       txt: 'ver más',
+  //-       addClass: ''
+  //-     })
 
-  +Sub({
-    title: 'BUSCA TAMBIEN POR CATEGORIA'
-  })
-  div.algo.-Padd2
-  // Slider main container
-  .swiper-container
-    // Additional required wrapper
-    .swiper-wrapper
-      // Slides
-      .swiper-slide Slide 1
-      .swiper-slide Slide 2
-      .swiper-slide Slide 3
-      |         ...
-    // If we need pagination
-    .swiper-pagination
-    // If we need navigation buttons
-    .swiper-button-prev
-    .swiper-button-next
-    // If we need scrollbar
-    .swiper-scrollbar
+  //- +Sub({
+  //-   title: 'BUSCA TAMBIEN POR CATEGORIA'
+  //- })
+  //- div.algo.-Padd2
+  //- // Slider main container
+  //- .swiper-container
+  //-   // Additional required wrapper
+  //-   .swiper-wrapper
+  //-     // Slides
+  //-     .swiper-slide Slide 1
+  //-     .swiper-slide Slide 2
+  //-     .swiper-slide Slide 3
+  //-     |         ...
+  //-   // If we need pagination
+  //-   .swiper-pagination
+  //-   // If we need navigation buttons
+  //-   .swiper-button-prev
+  //-   .swiper-button-next
+  //-   // If we need scrollbar
+  //-   .swiper-scrollbar
 
-    script.
-      var mySwiper = new Swiper('.swiper-container', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
+  //-   script.
+  //-     var mySwiper = new Swiper('.swiper-container', {
+  //-       // Optional parameters
+  //-       direction: 'horizontal',
+  //-       loop: true,
 
-        // If we need pagination
-        pagination: {
-          el: '.swiper-pagination',
-        },
+  //-       // If we need pagination
+  //-       pagination: {
+  //-         el: '.swiper-pagination',
+  //-       },
 
-        // Navigation arrows
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+  //-       // Navigation arrows
+  //-       navigation: {
+  //-         nextEl: '.swiper-button-next',
+  //-         prevEl: '.swiper-button-prev',
+  //-       },
 
-        // And if we need scrollbar
-        scrollbar: {
-          el: '.swiper-scrollbar',
-        },
-      })
+  //-       // And if we need scrollbar
+  //-       scrollbar: {
+  //-         el: '.swiper-scrollbar',
+  //-       },
+  //-     })
 
   //- link(rel='stylesheet' href='https://unpkg.com/swiper/swiper-bundle.min.css')
   //- script(src='https://unpkg.com/swiper/swiper-bundle.min.js')

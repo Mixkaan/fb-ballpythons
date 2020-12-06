@@ -6,7 +6,7 @@ mixin InptText (fProps)
   div.input-container.-Flex
     label.-Font1.-Bold #{fProps.label}
     label.input-container
-      input(type="text", class=fProps.addClass, name=fProps.name required).inpt.-Padd.-Rad2.-Shadow.-Trans
+      input(type="text", value=fProps.value class=fProps.addClass, name=fProps.name required).inpt.-Padd.-Rad2.-Shadow.-Trans
       span.placeholder.-Rad2.-Trans #{fProps.pHolder}
 //-INITIALIZATION --//>
   +InptText({
@@ -41,7 +41,7 @@ mixin InptNum (fProps)
   div.input-container.-Flex
     label(for="").-Font1.-Bold #{fProps.label}
     label.input-container
-      input(type="number", class=fProps.addClass, name=fProps.name required).-Padd.-Rad2.-Shadow.-Trans
+      input(type="number", class=fProps.addClass, name=fProps.name, value=fProps.value, style='width: 50%' required).inpt.-Padd.-Rad2.-Shadow.-Trans
       span.placeholder.-Rad2.-Trans #{fProps.pHolder}
 //-INITIALIZATION --//>
   +InptNum({
@@ -56,7 +56,7 @@ mixin TxtArea (fProps)
   div.input-container.-Flex
     label.-Font1.-Bold #{fProps.label}
     label(for=fProps.name).txt-container
-      textarea(name=fProps.name, cols="40", rows="10", class=fProps.addClass required).-Padd.-Rad2.-Shadow.-Trans
+      textarea(name=fProps.name, value=fProps.value, cols="40", rows="10", class=fProps.addClass required).-Padd.-Rad2.-Shadow.-Trans
       span.placeholder.-Rad2.-Trans #{fProps.pHolder}
 //-INITIALIZATION --//>
   +TxtArea({
@@ -71,7 +71,7 @@ mixin Select (fProps)
   div.input-container.-Flex
     label.-Font1.-Bold #{fProps.label}
     label.select-container
-      select(name=fProps.name class=fProps.addClass).select.-Padd.-Rad2.-Trans
+      select(name=fProps.name class=fProps.addClass, value=fProps.value).select.-Padd.-Rad2.-Trans
         for option in options
           option(value=option.option).op.-Trans=option.option
       span.placeholder.-Rad2.-Trans #{fProps.pHolder}

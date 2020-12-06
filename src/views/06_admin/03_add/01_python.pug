@@ -59,6 +59,7 @@ block main
         name: 'price',
         addClass: ''
       })
+
       - var options = [{option: 'selecciona el sexo'}, {option: 'macho'}]
       +Select({
         label: 'Sexo',
@@ -74,25 +75,13 @@ block main
         addClass: '',
       }, options)
       br
-      br
-      br
+      
       div.images.-FLex
         +InptFile({
           name: 'image',
           label: 'IMAGENES',
           addClass: 'file'
         })
-        //- +InptFile({
-        //-   name: 'imagen',
-        //-   label: '',
-        //-   addClass: 'file'
-        //- })
-        //- +InptFile({
-        //-   name: 'imagen',
-        //-   label: '',
-        //-   addClass: 'file'
-        //- })
-      br
       br
       +BtnSubmit({
         txt: 'añadir ejemplar',

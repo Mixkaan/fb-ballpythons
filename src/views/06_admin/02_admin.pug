@@ -13,13 +13,13 @@ block main
         addClass: 'nav_btn'
       })
 
-      +BtnPrimary({
+      +BtnSecondary({
         txt: 'agregar un producto',
         url: '/admin/agregar/producto',
         addClass: 'nav_btn'
       })
 
-      +BtnPrimary({
+      +BtnInfo({
         txt: 'regresar a la pagina de inicio',
         url: '/agregar',
         addClass: 'nav_btn'
@@ -35,30 +35,37 @@ block main
                 thead.table__title.-Center
                   th ID
                   th NOMBRE
-                  th PRECIO
                   th DESCRIPCION
-                  th CATEGORIA
+                  th MORPHS
                   th SEXO
                   th EDAD
+                  th PRECIO
                   th IMAGEN
                   th ACCIONES
                 tbody.table__body.-Center
                   for python in pythons
                     tr
-                      td.-Font1= python.id
-                      td.-Font1= python.name
-                      td.-Font1= python.price
-                      td.-Font1= python.description
-                      td.-Font1= python.category
-                      td.-Font1= python.gender
-                      td.-Font1= python.age
+                    tr
+                    tr
+                    tr
+                    tr
+                    tr
+                    tr
+                    tr
+                      td= python.id
+                      td= python.name
+                      td= python.description
+                      td= python.morph
+                      td= python.gender
+                      td= python.age
+                      td= '$' + ' ' + python.price
                       td
-                        img(src=python.imageURL)
+                        img(src=python.imageURL, loading="lazy")
                       td
                         +BtnDanger({
                           txt: 'eliminar',
                           url: '/admin/agregar/python/DELETE='+ python.id,
-                          addClass: ''
+                          addClass: 'btn_actions'
                         })
 
           div(onclick="changeTab(2)").tab.-Shadow.close
