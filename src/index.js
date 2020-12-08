@@ -59,6 +59,7 @@ app.use(bodyParser.json());
 
 //- RUTES ----------------------------------------------------------- //>
 app.use(require('./routes/01_homepage.routes'));
+app.use(require('./routes/02_avialable.routes'));
 app.use(require('./routes/06_admin.routes'));
 
 //- 404-ERROR-HANDLING ------------------------------------- //

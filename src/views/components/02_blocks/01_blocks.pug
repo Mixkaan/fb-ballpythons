@@ -12,9 +12,15 @@ mixin Sub (bProps)
 
 mixin card (bProps)
   div.card.-Padd.-Shadow
-    div.card__options
-      a(href="") ver mas
-    img(src=bProps.img, alt=bProps.alt).card__img
-    div.card__info
-      p.-Center= '$' + ' ' + bProps.price
-      p.-Center=bProps.name
+    div.card__options.-Center.-Flex.-Trans2
+      +BtnPrimary({
+        txt: bProps.btntxt
+      })
+      +BtnDanger({
+        txt: 'comprar ahora'
+      })
+    div.card__info.-Trans2
+      img(src=bProps.img, alt="", loading="lazy")
+      div.card__info__info
+        p.-Center.-Bold= '$' + ' ' + bProps.price
+        p.-Center= bProps.name

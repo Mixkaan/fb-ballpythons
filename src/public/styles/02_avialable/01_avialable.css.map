@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "01_avialable.css",
+	"sources": [
+		"../../sass/02_avialable/01_avialable.sass",
+		"../../sass/_colors.sass"
+	],
+	"names": [],
+	"mappings": "AAIA,AAAA,OAAO,AAAC,CACN,gBAAgB,CAAE,GAAG,CAGS,AAF7B,AAAD,gBAAU,AAAC,CACT,MAAM,CAAE,GAAG,CACX,gBAAgB,CAAE,KAAK,CAAG,AAE9B,AAAA,UAAU,AAAC,CACT,SAAS,CAAE,IAAI,CACf,eAAe,CAAE,MAAM,CAAG"
+}

@@ -1,3 +1,3 @@
-.bann{min-height:50vh;justify-content:center;align-items:center;background-color:#1bc298}.bann__img{width:25vw;height:auto}.bann__txt{flex-direction:column}.recently_added{flex-wrap:wrap;justify-content:center}.swiper-container{width:600px;height:300px;display:flex}.swiper-scrollbar{opacity:0}
+.bann{min-height:50vh;justify-content:center;align-items:center;background-color:#1bc298}.bann__img{width:25vw;height:auto}.bann__txt{flex-direction:column}.recently_added{flex-wrap:wrap;justify-content:center}.recently_added__btn{width:90%}.swiper-container{width:600px;height:300px;display:flex}.swiper-scrollbar{opacity:0}.morphs{flex-wrap:wrap;justify-content:center}.morphs__section{width:10em;height:12em;margin:1em 0.5em;background-color:red}
 
 /*# sourceMappingURL=01_homepage.css.map */

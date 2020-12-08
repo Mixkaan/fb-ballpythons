@@ -8,7 +8,6 @@ block append helmet
 
   link(rel='stylesheet' href='https://unpkg.com/swiper/swiper-bundle.min.css')
   script(src='https://unpkg.com/swiper/swiper-bundle.min.js')
-
 block main
 
   div.bann.-Menu-margin.-Flex
@@ -17,102 +16,94 @@ block main
       h2.-Font3 Excelencia en genética
       h3.-Font2 Alimento de calidad
 
+
   //- RECENTLY-ADDED ------------------------------------------------ //>
   +Sub({
   title: 'AGREGADOS RECIENTEMENTE'
   })
+
   div.-content-case2
     div.recently_added.-Flex
-      for python in pythons
-        +card({
-          img: python.imageURL,
-          alt: python.name,
-          price: python.price,
-          name: python.name
-        })
+      if pythons === 0
+        div.not no hay nada
+      else
+        -for(var i = 0; i <=1; i++)
+          +card({
+            img: pythons[i].imageURL,
+            alt: pythons[i].name,
+            price: pythons[i].price,
+            name: pythons[i].name,
+            btntxt: 'ola'
+          })
+
+    +BtnPrimary({
+      txt: 'ver más',
+      addClass: 'recently_added__btn'
+    })
+
+
   //- //- SLIDER-SECTION ------------------------------------------------ //>
   +Sub({
-  title: 'AGREGADOS RECIENTEMENTE'
+  title: 'OFERTAS Y MAS'
   })
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  //- //- MORPHS -------------------------------------------------------- //>
 
-  //- div.morphs.-Screen.-Flex
-  //-   div.-content-case2
+  // Slider main container
+  .swiper-container
+    // Additional required wrapper
+    .swiper-wrapper
+      // Slides
+      .swiper-slide Slide 1
+      .swiper-slide Slide 2
+      .swiper-slide Slide 3
+      |         ...
+    // If we need pagination
+    .swiper-pagination
+    // If we need navigation buttons
+    .swiper-button-prev
+    .swiper-button-next
+    // If we need scrollbar
+    .swiper-scrollbar
 
-  //-     div.buttons
-  //-       div.morphs__select.-Flex
-  //-         for python in pythons
-  //-           div.object-case.-Padd
-  //-             img(src=python.imageURL, alt="").object-case__img
-  //-             p.-Center= python.name
-  //-       //- for python in pythons
-  //-       //-   div.object-case.-Padd
-  //-       //-     img(src=python.imageURL[i], alt="").object-case__img
-  //-       //-   //- div.object-case
-  //-       //-   //- div.object-case
-  //-       //-   //- div.object-case
-  //-       //-     //- div.object-case
-  //-       //-     //- div.object-case
-      
-  //-     +BtnPrimary({
-  //-       url: '',
-  //-       txt: 'ver más',
-  //-       addClass: ''
-  //-     })
+    script.
+      var mySwiper = new Swiper('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
 
-  //- +Sub({
-  //-   title: 'BUSCA TAMBIEN POR CATEGORIA'
-  //- })
-  //- div.algo.-Padd2
-  //- // Slider main container
-  //- .swiper-container
-  //-   // Additional required wrapper
-  //-   .swiper-wrapper
-  //-     // Slides
-  //-     .swiper-slide Slide 1
-  //-     .swiper-slide Slide 2
-  //-     .swiper-slide Slide 3
-  //-     |         ...
-  //-   // If we need pagination
-  //-   .swiper-pagination
-  //-   // If we need navigation buttons
-  //-   .swiper-button-prev
-  //-   .swiper-button-next
-  //-   // If we need scrollbar
-  //-   .swiper-scrollbar
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
 
-  //-   script.
-  //-     var mySwiper = new Swiper('.swiper-container', {
-  //-       // Optional parameters
-  //-       direction: 'horizontal',
-  //-       loop: true,
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
 
-  //-       // If we need pagination
-  //-       pagination: {
-  //-         el: '.swiper-pagination',
-  //-       },
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      })
+  
+  //- MORPHS -------------------------------------------------------- //>
+  +Sub({
+  title: 'BUSCA POR FASE'
+  })
 
-  //-       // Navigation arrows
-  //-       navigation: {
-  //-         nextEl: '.swiper-button-next',
-  //-         prevEl: '.swiper-button-prev',
-  //-       },
+  div.-content-case2
+    div.morphs.-Flex
+      div.morphs__section.-Shadow
+      div.morphs__section.-Shadow
+      div.morphs__section.-Shadow
+      div.morphs__section.-Shadow
+      div.morphs__section.-Shadow
+      div.morphs__section.-Shadow
 
-  //-       // And if we need scrollbar
-  //-       scrollbar: {
-  //-         el: '.swiper-scrollbar',
-  //-       },
-  //-     })
+    +BtnPrimary({
+      txt: 'ver más'
+    })
 
-  //- link(rel='stylesheet' href='https://unpkg.com/swiper/swiper-bundle.min.css')
-  //- script(src='https://unpkg.com/swiper/swiper-bundle.min.js')
+  link(rel='stylesheet' href='https://unpkg.com/swiper/swiper-bundle.min.css')
+  script(src='https://unpkg.com/swiper/swiper-bundle.min.js')
