@@ -1,3 +1,3 @@
-.filter{background-color:red}.filter__section{height:4em;background-color:green}.avialable{flex-wrap:wrap;justify-content:center}
+.filter{flex-direction:column;justify-content:center;background-color:#5277ad}.filter_category{margin:1em 0;align-items:center;justify-content:center}.filter_category__select{margin:0 2em}.avialable{flex-wrap:wrap;justify-content:center}.active{background-color:red}.desactive{display:none}
 
 /*# sourceMappingURL=01_avialable.css.map */

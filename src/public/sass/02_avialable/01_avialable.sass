@@ -1,13 +1,28 @@
 //- IMPORT-COLOR-SET -------------------------------------- */
 @import ../_colors
 
-//- FILTER
+//- FILTER-SECTION -------------------------------------------------- */
 .filter
-  background-color: red
-  &__section
-    height: 4em
-    background-color: green
-//-
+  flex-direction: column
+  justify-content: center
+  background-color: $col9
+.filter_category
+  margin: 1em 0
+  align-items: center
+  justify-content: center
+  &__select
+    margin: 0 2em
+  &__btn
+    // width: 80%
+
+
+//- AVIALABLE-SECTION ----------------------------------------------- */
 .avialable
   flex-wrap: wrap
   justify-content: center
+
+
+.active
+  background-color: red
+.desactive
+  display: none

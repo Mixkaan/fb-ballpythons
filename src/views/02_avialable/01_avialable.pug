@@ -6,22 +6,63 @@ block append helmet
   link(rel="stylesheet", href="/styles/02_avialable/01_avialable.css")
 
 block main
-  br
-  br
 
+  //-
+  div.filter.-Menu-margin.-Flex.-Padd2
+    h2.-Font3 BUSCA POR CATEGORIA
+    div.filter_category.-Flex
+      a(href="" category="all")#indicator todo
+      - var options = [{option: 'busqueda relacionada por fase'},{option: 'nominal'}]
+      +Select({
+        label: 'Buscar por fase',
+        name: 'morph',
+        id: '',
+        pHolder: 'busca por fase',
+        addClass: 'filter_category__select',
+      }, options)
+
+      - var options = [{option: 'busqueda relacionada por fase'},{option: 'cria'}]
+      +Select({
+        label: 'Buscar por edad',
+        name: 'morph',
+        id: 'filterSelectAge',
+        pHolder: 'busca por fase',
+        addClass: 'filter_category__select',
+      }, options)
+
+      - var options = [{option: 'busqueda relacionada por fase'},{option: 'nominal'}]
+      +Select({
+        label: 'Buscar por sexo',
+        name: 'morph',
+        id: '',
+        pHolder: 'busca por fase',
+        addClass: 'filter_category__select',
+      }, options)
+
+    //- +BtnPrimary({
+    //-   txt: 'buscar',
+    //-   addClass: 'filter_category__btn'
+    //- })
+    button#filterButton ola
+
+
+  //- AVIALABLE-SECTION
   +Sub({
-    title: 'ola'
+    title: 'DISPONIBLE'
   })
-  div.-content-case2
+
+  div.-content-case2.-Screen
     div.avialable.-Flex
       for python in pythons
-        a(href="", age= python.age)
+        div(data-age=python.age)#cardSelector
           +card({
-            img: python.imageURL,
-            alt: python.name,
-            price: python.price,
-            name: python.name,
-            btntxt: 'ver mas',
-          })
+              img: python.imageURL,
+              alt: python.name,
+              price: python.price,
+              name: python.name,
+              btntxt: 'ola'
+            })
+
+
 
   script(src="/js/02_avialable/01_avialable_filter.js")

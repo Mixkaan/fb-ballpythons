@@ -11,7 +11,7 @@ mixin Sub (bProps)
   })
 
 mixin card (bProps)
-  div.card.-Padd.-Shadow
+  div.card.-Padd.-Shadow#card
     div.card__options.-Center.-Flex.-Trans2
       +BtnPrimary({
         txt: bProps.btntxt
@@ -22,5 +22,5 @@ mixin card (bProps)
     div.card__info.-Trans2
       img(src=bProps.img, alt="", loading="lazy")
       div.card__info__info
-        p.-Center.-Bold= '$' + ' ' + bProps.price
+        p.-Center.-Bold#price= '$' + ' ' + bProps.price
         p.-Center= bProps.name

@@ -10,6 +10,7 @@ block append helmet
   script(src='https://unpkg.com/swiper/swiper-bundle.min.js')
 block main
 
+  
   div.bann.-Menu-margin.-Flex
     img(src="/icon/logo/1.png", alt="").bann__img
     div.bann__txt.-Flex
@@ -27,7 +28,7 @@ block main
       if pythons === 0
         div.not no hay nada
       else
-        -for(var i = 0; i <=1; i++)
+        - for(var i = 0; i <=2; i++)
           +card({
             img: pythons[i].imageURL,
             alt: pythons[i].name,
@@ -42,68 +43,92 @@ block main
     })
 
 
-  //- //- SLIDER-SECTION ------------------------------------------------ //>
+  //- SOLCIAL-SECTION ----------------------------------------------- //>
   +Sub({
-  title: 'OFERTAS Y MAS'
+    title: 'BUSCANOS'
   })
 
-  // Slider main container
-  .swiper-container
-    // Additional required wrapper
-    .swiper-wrapper
-      // Slides
-      .swiper-slide Slide 1
-      .swiper-slide Slide 2
-      .swiper-slide Slide 3
-      |         ...
-    // If we need pagination
-    .swiper-pagination
-    // If we need navigation buttons
-    .swiper-button-prev
-    .swiper-button-next
-    // If we need scrollbar
-    .swiper-scrollbar
+  div.social.-Flex
 
-    script.
-      var mySwiper = new Swiper('.swiper-container', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
+    a(href="").social_case
+      img(src="/icon/social/facebook.png", alt="").social_case__img.-Trans2
+      p.-Font2 FACEBOOK
 
-        // If we need pagination
-        pagination: {
-          el: '.swiper-pagination',
-        },
+    a(href="").social_case
+      img(src="/icon/social/instagram.png", alt="").social_case__img.-Trans2
+      p.-Font2 INSTAGRAM
 
-        // Navigation arrows
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+    a(href="").social_case
+      img(src="/icon/social/whatsapp.png", alt="").social_case__img.-Trans2
+      p.-Font2 WHASTAPP
 
-        // And if we need scrollbar
-        scrollbar: {
-          el: '.swiper-scrollbar',
-        },
-      })
+
+  //- 
+
+
+
+  //- //- //- SLIDER-SECTION ------------------------------------------------ //>
+  //- +Sub({
+  //- title: 'OFERTAS Y MAS'
+  //- })
+
+  //- // Slider main container
+  //- .swiper-container
+  //-   // Additional required wrapper
+  //-   .swiper-wrapper
+  //-     // Slides
+  //-     .swiper-slide Slide 1
+  //-     .swiper-slide Slide 2
+  //-     .swiper-slide Slide 3
+  //-     |         ...
+  //-   // If we need pagination
+  //-   .swiper-pagination
+  //-   // If we need navigation buttons
+  //-   .swiper-button-prev
+  //-   .swiper-button-next
+  //-   // If we need scrollbar
+  //-   .swiper-scrollbar
+
+  //-   script.
+  //-     var mySwiper = new Swiper('.swiper-container', {
+  //-       // Optional parameters
+  //-       direction: 'horizontal',
+  //-       loop: true,
+
+  //-       // If we need pagination
+  //-       pagination: {
+  //-         el: '.swiper-pagination',
+  //-       },
+
+  //-       // Navigation arrows
+  //-       navigation: {
+  //-         nextEl: '.swiper-button-next',
+  //-         prevEl: '.swiper-button-prev',
+  //-       },
+
+  //-       // And if we need scrollbar
+  //-       scrollbar: {
+  //-         el: '.swiper-scrollbar',
+  //-       },
+  //-     })
   
-  //- MORPHS -------------------------------------------------------- //>
-  +Sub({
-  title: 'BUSCA POR FASE'
-  })
+  //- //- MORPHS -------------------------------------------------------- //>
+  //- +Sub({
+  //- title: 'BUSCA POR FASE'
+  //- })
 
-  div.-content-case2
-    div.morphs.-Flex
-      div.morphs__section.-Shadow
-      div.morphs__section.-Shadow
-      div.morphs__section.-Shadow
-      div.morphs__section.-Shadow
-      div.morphs__section.-Shadow
-      div.morphs__section.-Shadow
+  //- div.-content-case2
+  //-   div.morphs.-Flex
+  //-     div.morphs__section.-Shadow
+  //-     div.morphs__section.-Shadow
+  //-     div.morphs__section.-Shadow
+  //-     div.morphs__section.-Shadow
+  //-     div.morphs__section.-Shadow
+  //-     div.morphs__section.-Shadow
 
-    +BtnPrimary({
-      txt: 'ver más'
-    })
+  //-   +BtnPrimary({
+  //-     txt: 'ver más'
+  //-   })
 
   link(rel='stylesheet' href='https://unpkg.com/swiper/swiper-bundle.min.css')
   script(src='https://unpkg.com/swiper/swiper-bundle.min.js')

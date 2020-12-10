@@ -68,12 +68,12 @@ mixin TxtArea (fProps)
 
 //- SELECT ---------------------------------------------------------- //>
 mixin Select (fProps)
-  div.input-container.-Flex
+  div(class=fProps.addClass).input-container.-Flex
     label.-Font1.-Bold #{fProps.label}
     label.select-container
-      select(name=fProps.name class=fProps.addClass, value=fProps.value).select.-Padd.-Rad2.-Trans
+      select(name=fProps.name, value=fProps.value, id=fProps.id).select.-Padd.-Rad2.-Trans
         for option in options
-          option(value=option.option).op.-Trans=option.option
+          option(value=option.option, id=option.option).op.-Trans=option.option
       span.placeholder.-Rad2.-Trans #{fProps.pHolder}
       div.arrow
 //-INITIALIZATION --//>
